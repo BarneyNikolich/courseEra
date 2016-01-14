@@ -1,5 +1,7 @@
 package example
 
+import scala.NoSuchElementException
+
 object Lists {
   /**
    * This method computes the sum of all elements in the list xs. There are
@@ -22,7 +24,7 @@ object Lists {
    * @return The sum of all elements in `xs`
    */
   def sum(xs: List[Int]): Int = {
-    if(xs.isEmpty) 0
+    if (xs.isEmpty) 0
     else xs.head + sum(xs.tail)
   }
 
@@ -39,5 +41,11 @@ object Lists {
    * @return The largest element in `xs`
    * @throws java.util.NoSuchElementException if `xs` is an empty list
    */
-  def max(xs: List[Int]): Int = ???
+  def max(xs: List[Int]): Int = {
+     xs match {
+       case xs.isEmpty => throw new NoSuchElementException()
+
+     }
+
+  }
 }
